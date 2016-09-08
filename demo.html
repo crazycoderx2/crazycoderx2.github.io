@@ -1297,6 +1297,11 @@
     </script>
     <script>
 
+    var script = document.createElement('script');
+    script.src = "demo.asm.js";
+    script.onload = function() {
+      setTimeout(function() {
+        
         (function() {
           var memoryInitializer = 'demo.html.mem';
           if (typeof Module['locateFile'] === 'function') {
@@ -1313,6 +1318,10 @@
         var script = document.createElement('script');
         script.src = "demo.js";
         document.body.appendChild(script);
+
+      }, 1); // delaying even 1ms is enough to allow compilation memory to be reclaimed
+    };
+    document.body.appendChild(script);
 
 </script>
   </body>
